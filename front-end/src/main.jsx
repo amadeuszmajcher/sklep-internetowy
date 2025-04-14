@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Cart } from "./views/Cart/Cart.jsx";
 import { Favourites } from "./views/Favourites/Favourites.jsx";
 import { Layout } from "./components/Layout/Layout.jsx";
+import { MainPage } from "./views/MainPage/MainPage.jsx";
+import { mainPageLoader } from "./api/mainPageLoader.js";
 const router = createBrowserRouter([
   {
     path: "",
@@ -18,6 +20,11 @@ const router = createBrowserRouter([
       {
         path: "/ulubione",
         element: <Favourites />,
+      },
+      {
+        path: "/:gender?",
+        element: <MainPage />,
+        loader: mainPageLoader,
       },
     ],
   },
