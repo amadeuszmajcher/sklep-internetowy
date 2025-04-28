@@ -7,7 +7,7 @@ export function Pagination({ numberOfPages }) {
       {pages.map((pages, index) => {
         return (
           <li key={index}>
-            <NavLink>{index + 1}</NavLink>
+            <NavLink to={`?page=${index + 1}`}>{index + 1}</NavLink>
           </li>
         );
       })}

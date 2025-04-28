@@ -6,7 +6,7 @@ import { Pagination } from "../../components/Pagination/Pagination";
 import { useLoaderData, useParams } from "react-router-dom";
 import { CATEGORIES } from "../../constants/categories";
 export function ProductsLists() {
-  const products = useLoaderData();
+  const { products, numberOfPages } = useLoaderData();
   const params = useParams();
   const foundCategory = CATEGORIES.find((c) => c.path === params.category);
 
@@ -31,7 +31,7 @@ export function ProductsLists() {
               : foundCategory.categoryName
           }
         />
-        <Pagination numberOfPages={5} />
+        <Pagination numberOfPages={numberOfPages} />
       </div>
     </FlexContainer>
   );
