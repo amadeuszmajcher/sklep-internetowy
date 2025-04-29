@@ -8,8 +8,10 @@ import { Favourites } from "./views/Favourites/Favourites.jsx";
 import { Layout } from "./components/Layout/Layout.jsx";
 import { MainPage } from "./views/MainPage/MainPage.jsx";
 import { ProductsLists } from "./views/ProductsLists/ProductsLists.jsx";
+import { ProductDetails } from "./views/ProductDetails/ProductDetails.jsx";
 import { mainPageLoader } from "./api/mainPageLoader.js";
 import { productListLoader } from "./api/productListLoader.js";
+import { productLoader } from "./api/productLoader.js";
 const router = createBrowserRouter([
   {
     path: "",
@@ -32,6 +34,11 @@ const router = createBrowserRouter([
         path: "/:gender/:category/:subcategory?",
         element: <ProductsLists />,
         loader: productListLoader,
+      },
+      {
+        path: "/:gender/:category/:subcategory/:productId",
+        element: <ProductDetails />,
+        loader: productLoader,
       },
     ],
   },
