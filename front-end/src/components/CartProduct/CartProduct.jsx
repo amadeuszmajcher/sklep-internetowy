@@ -1,7 +1,9 @@
 import styles from "./CartProduct.module.css";
 import REMOVE_ICON from "../../assets/remove.svg";
+import { Price } from "../Price/Price";
 
 export function CartProduct({ product }) {
+  const price = <Price product={product} />;
   return (
     <div className={styles.favouriteProduct}>
       <img src={product.photos[0]} />
@@ -10,11 +12,11 @@ export function CartProduct({ product }) {
           <h3>
             {product.brand} {product.productName}
           </h3>
-          <p>{product.pricePLN}</p>
+          <p>{price}</p>
         </div>
         <p>
           <span className={styles.priceRow}>Cena:</span>
-          {product.pricePLN}zł
+          {price}
         </p>
         <div className={styles.buttonRow}>
           <button>
